@@ -3,7 +3,7 @@ package com.soywiz.klock
 import com.soywiz.klock.internal.*
 import kotlin.math.*
 
-class SimplerDateFormat(val format: String) {
+class SimplerDateFormat(val format: String, val ignoreDashes: Boolean = false) {
     companion object {
         private val rx by lazy { Regex("""('[\w]+'|[\w]+\B[^Xx]|[Xx]{1,3}|[\w]+)""") }
         private val englishDaysOfWeek = listOf(
@@ -19,6 +19,13 @@ class SimplerDateFormat(val format: String) {
         val FORMAT1 by lazy { SimplerDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX") }
 
         val FORMAT_DATE by lazy { SimplerDateFormat("yyyy-MM-dd") }
+
+        val FORMAT_ISO8601_YEAR by lazy { SimplerDateFormat("yyyy") }
+        val FORMAT_ISO8601_YEAR_MONTH by lazy { SimplerDateFormat("yyyy-MM") }
+        val FORMAT_ISO8601_YEAR_MONTH_DAY by lazy { SimplerDateFormat("yyyy-MM-dd", ignoreDashes = true) }
+        val FORMAT_ISO8601_YEAR_WEEK by lazy { SimplerDateFormat("yyyy-'W'ww", ignoreDashes = true) }
+        val FORMAT_ISO8601_YEAR_WEEK_DAY_OF_WEEK by lazy { SimplerDateFormat("yyyy-'W'ww-d", ignoreDashes = true) }
+        val FORMAT_ISO8601_YEAR_DAY by lazy { SimplerDateFormat("yyyy-ddd", ignoreDashes = true) }
 
         val FORMATS = listOf(DEFAULT_FORMAT, FORMAT1)
 
