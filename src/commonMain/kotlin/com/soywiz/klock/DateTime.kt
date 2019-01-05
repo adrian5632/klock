@@ -10,7 +10,7 @@ import com.soywiz.klock.internal.*
  * - Thu Aug 10 -140744 07:15:45 GMT-0014 (Central European Summer Time)
  * - Wed May 23 144683 18:29:30 GMT+0200 (Central European Summer Time)
  */
-inline class DateTime(
+class DateTime(
     /** Number of milliseconds since UNIX [EPOCH] */
     val unixMillis: Double = 0.0
 ) : Comparable<DateTime> {
