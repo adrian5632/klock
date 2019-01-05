@@ -12,7 +12,7 @@ import com.soywiz.klock.internal.*
  */
 inline class DateTime(
     /** Number of milliseconds since UNIX [EPOCH] */
-    val unixMillis: Double
+    val unixMillis: Double = 0.0
 ) : Comparable<DateTime> {
     companion object {
         /** It is the that have elapsed since 00:00:00 UTC, Thursday, 1 January 1970, minus leap seconds. */
